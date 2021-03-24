@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hide_text_on_photo;
+package hide_text_on_photo.Interface;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author zGararz
  */
-interface IAlgorithmHideText {
+public interface IAlgorithmHideText {
     public String textToBinaryCode(String text);
     public List<BufferedImage> splitImage(BufferedImage image);
     public String findPositions(String arr1, BufferedImage img1);
