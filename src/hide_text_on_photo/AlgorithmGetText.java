@@ -23,7 +23,7 @@ public class AlgorithmGetText implements IAlgorithmGetText{
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',':', ';', '<', '=', '>', '?', '@',
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
         '[', '\\', ']', '^', '_', '`',
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
     };
     
     @Override
@@ -36,6 +36,7 @@ public class AlgorithmGetText implements IAlgorithmGetText{
             if(pos > -1 && pos < ASCII.length) {
                 s.append(ASCII[pos]);
             } else {
+
                 if(pos == -22){
                     s.append("\n");
                 } else {
@@ -96,7 +97,8 @@ public class AlgorithmGetText implements IAlgorithmGetText{
             String b1 = b.substring(i, i + 16);
             int pos = Integer.parseInt(b1, 2);
             if (pos > 255) {
-                pos = (int) (Math.random() * 100);
+                pos = (int) (Math.random() * 20);
+
             }
             list.add(pos);
     
