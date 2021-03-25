@@ -36,6 +36,7 @@ public class AlgorithmGetText implements IAlgorithmGetText{
             if(pos > -1 && pos < ASCII.length) {
                 s.append(ASCII[pos]);
             } else {
+<<<<<<< HEAD
 
                 if(pos == -22){
                     s.append("\n");
@@ -43,6 +44,9 @@ public class AlgorithmGetText implements IAlgorithmGetText{
                     s.append('?');
                 }
                 
+=======
+                s.append('?');
+>>>>>>> parent of edbe6af (update)
             }
         }
         } catch (Exception e) {
@@ -98,7 +102,10 @@ public class AlgorithmGetText implements IAlgorithmGetText{
             int pos = Integer.parseInt(b1, 2);
             if (pos > 255) {
                 pos = (int) (Math.random() * 20);
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of edbe6af (update)
             }
             list.add(pos);
     
