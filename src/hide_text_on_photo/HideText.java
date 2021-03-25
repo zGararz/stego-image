@@ -30,7 +30,7 @@ public class HideText {
         pos = hide.findPositions(s1, listImage.get(0));
 
         if (pos != null && !pos.isEmpty()) {
-            img2 = hide.Substation(pos, listImage.get(1), 0);
+            img2 = hide.Substation(pos, listImage.get(1), k);
             stegoImg = hide.extractionStegoImage(listImage.get(0), img2);
             
             return stegoImg;
@@ -47,7 +47,7 @@ public class HideText {
           
          listImage = hide.splitImage(img);
           
-         list = get.getPositions(listImage.get(1), 0);
+         list = get.getPositions(listImage.get(1), k);              
          code = get.PositionToBinaryCOde(list, listImage.get(0));
                 
          

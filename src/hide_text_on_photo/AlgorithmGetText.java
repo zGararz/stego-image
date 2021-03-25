@@ -16,11 +16,15 @@ import java.util.List;
  * @author zGararz
  */
 public class AlgorithmGetText implements IAlgorithmGetText{
-    //48-122
-    static final char[] ASCII = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',':', ';', '<', '=', '>', '?', '@',
+    //32-122
+    final int START_CHAR = 32;
+    static final char[] ASCII = {
+        ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')','*', '+', ',','-', '.', '/',
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',':', ';', '<', '=', '>', '?', '@',
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
         '[', '\\', ']', '^', '_', '`',
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+    };
     
     @Override
     public String binaryCodeToText(String b) {
@@ -28,16 +32,24 @@ public class AlgorithmGetText implements IAlgorithmGetText{
         try {
             for (int i = 0; i < b.length(); i += 8) {
             String b1 = b.substring(i, i + 8);
-            int pos = Integer.parseInt(b1, 2) - 48;
+            int pos = Integer.parseInt(b1, 2) - START_CHAR;
             if(pos > -1 && pos < ASCII.length) {
                 s.append(ASCII[pos]);
             } else {
-                s.append(' ');
+
+                if(pos == -22){
+                    s.append("\n");
+                } else {
+                    s.append('?');
+                }
+                
+
             }
         }
         } catch (Exception e) {
         }
         
+        System.out.println(s.toString());
         return s.toString();
     }
 
@@ -47,11 +59,13 @@ public class AlgorithmGetText implements IAlgorithmGetText{
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < img2.getHeight(); i++) {            
             for (int j = 0; j < img2.getWidth(); j++) {
-               
-                    Color c = new Color(img2.getRGB(j, i));
-                    String blue = FixBit.fillBit(Integer.toBinaryString(c.getBlue()), 8);
+               if ((i * img2.getWidth() + j) >= k) {    
+                   Color c = new Color(img2.getRGB(j, i));
+                   String blue = FixBit.fillBit(Integer.toBinaryString(c.getBlue()), 8);
                    s.append(blue.charAt(blue.length() - 2));  
                    s.append(blue.charAt(blue.length() - 1)); 
+               }
+                 
             }
         }
         
@@ -83,13 +97,14 @@ public class AlgorithmGetText implements IAlgorithmGetText{
             for (int i = 0; i < b.length(); i += 16) {
             String b1 = b.substring(i, i + 16);
             int pos = Integer.parseInt(b1, 2);
+            if (pos > 255) {
+                pos = (int) (Math.random() * 20);
+            }
             list.add(pos);
     
         }
         } catch (Exception e) {
-        }
-        
-        
+        }             
         return list;
     }
     
