@@ -23,13 +23,12 @@ public class Test {
         AlgorithmHideText h = new AlgorithmHideText();
         AlgorithmGetText g = new AlgorithmGetText();
             List<String> list1 = new ArrayList<>();
-            File imge = new File("C:\\Users\\zGararz\\Pictures\\fl_stego.jpg");
-            File imge1 = new File("C:\\Users\\zGararz\\Pictures\\fl_stego.jpg");
+            File imge = new File("C:\\Users\\zGararz\\Pictures\\n.jpg");
             BufferedImage img = ImageIO.read(imge); 
-            BufferedImage img1 = ImageIO.read(imge1); 
-            
-            ImageIO.write(HideText.hideText(img, "chao ban", 0), "png", imge1);
-            System.out.println(HideText.getText(img1, 0));
+        
+            ImageIO.write(HideText.hideText(img, "ngay hom nay that dep", 16), "png", new File("C:\\Users\\zGararz\\Pictures\\fl_stego1.jpg"));
+            BufferedImage img1 = ImageIO.read(new File("C:\\Users\\zGararz\\Pictures\\fl_stego1.jpg"));
+            HideText.getText(img1, 0);
             
 //            String text = "anh yeu em";          
 //            String s1 = h.textToBinaryCode(text);
