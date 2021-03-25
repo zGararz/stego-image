@@ -76,10 +76,7 @@ public class AlgorithmHideText implements IAlgorithmHideText{
                     blue = FixBit.fillBit(blue, 8);
                     
                     String blue2 = blue.substring(0, blue.length() - 2);
-                    if(arr.charAt(i) == blue.charAt(6) && arr.charAt(i+1) == blue.charAt(7)) {
-//                        System.out.print(j + " ");
-//                        System.out.print(k + " ");
-                        
+                    if(arr.charAt(i) == blue.charAt(6) && arr.charAt(i+1) == blue.charAt(7)) {                        
                         list.append(FixBit.fillBit(Integer.toBinaryString(j), 16));
                         list.append(FixBit.fillBit(Integer.toBinaryString(k), 16));
                         check = true;
@@ -100,12 +97,12 @@ public class AlgorithmHideText implements IAlgorithmHideText{
         int d = 0;
         for (int i = 0; i < img2.getHeight(); i++) {            
             for (int j = 0; j < img2.getWidth(); j++) {
+ 
                 Color c = new Color(img2.getRGB(j, i));
-                if (d < arr4.length()) {                                       
+                if (d < arr4.length() && (i * img2.getWidth() + j) >= k) {                                       
                     String blue = FixBit.fillBit(Integer.toBinaryString(c.getBlue()), 8);
                     String blue1 = blue.substring(0, blue.length() - 2);                 
                     blue1 = blue1 + arr4.charAt(d) + arr4.charAt(d+1);                      
-                    
                     Color c1 = new Color(c.getRed(), c.getGreen(), Integer.parseInt(blue1, 2));
                     img.setRGB(j, i, c1.getRGB());
 
