@@ -31,7 +31,6 @@ public class UI extends javax.swing.JFrame {
     public UI() {
         initComponents();
         setResizable(false);
-
     }
 
     /**
@@ -49,10 +48,8 @@ public class UI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaText = new javax.swing.JTextArea();
-
         jLabel5 = new javax.swing.JLabel();
         jTextFieldLength = new javax.swing.JTextField();
-
         jButtonSave = new javax.swing.JButton();
         jButtonExtract = new javax.swing.JButton();
         jButtonEmbed = new javax.swing.JButton();
@@ -88,19 +85,12 @@ public class UI extends javax.swing.JFrame {
         jTextAreaText.setRows(5);
         jScrollPane1.setViewportView(jTextAreaText);
 
-
         jLabel5.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Length");
 
         jTextFieldLength.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldLength.setText("0");
-        jTextFieldLength.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldLengthActionPerformed(evt);
-            }
-        });
-
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,35 +107,29 @@ public class UI extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-
                         .addComponent(jTextFieldKey, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldLength, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(82, Short.MAX_VALUE))
-
-                       
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-
-                    .addComponent(jTextFieldKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
-                        .addComponent(jTextFieldLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-
-                    .addComponent(jTextFieldKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-
-                
+                        .addComponent(jTextFieldLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(jTextFieldKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jButtonSave.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -286,9 +270,8 @@ public class UI extends javax.swing.JFrame {
                         .addComponent(jButtonExtract)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSave)))
-
-
-       
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -338,16 +321,14 @@ public class UI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error!");
             } else {
             BufferedImage img = ImageIO.read(new File(imagePath));
-
-            String text = HideText.getText(img, Integer.parseInt(jTextFieldKey.getText()));
-            
             int l = Integer.parseInt(jTextFieldLength.getText());
-            if(l > 0) {
+            String text = HideText.getText(img, Integer.parseInt(jTextFieldKey.getText()));
+            if (l > 0) {
                 jTextAreaText.setText(text.substring(0, l));
             } else {
-                jTextAreaText.setText(text);
+               jTextAreaText.setText(text); 
             }
-
+            
             
             JOptionPane.showMessageDialog(this, "Extracted!");
             }
@@ -414,7 +395,6 @@ public class UI extends javax.swing.JFrame {
                 jTextAreaText.setText("");
                 jTextFieldKey.setText("0");
                 jLabelImageIn.setIcon(new ImageIcon("C:\\Users\\zGararz\\Documents\\NetBeansProjects\\Encode_Image\\draw\\add1.png"));
-
                 jLabelImageOut.setIcon(null);
                 
                 
@@ -425,12 +405,6 @@ public class UI extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jButtonSaveActionPerformed
-
-
-    private void jTextFieldLengthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLengthActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldLengthActionPerformed
-
 
     float ratio;
      private ImageIcon resizeImage(String path, JLabel jLabelImage){
@@ -525,7 +499,6 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-
     private javax.swing.JLabel jLabelImageIn;
     private javax.swing.JLabel jLabelImageOut;
     private javax.swing.JPanel jPanel1;
@@ -535,8 +508,6 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaText;
     private javax.swing.JTextField jTextFieldKey;
-
     private javax.swing.JTextField jTextFieldLength;
-
     // End of variables declaration//GEN-END:variables
 }
